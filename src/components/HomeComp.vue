@@ -38,11 +38,23 @@
         Name is {{ item.name }} and email is {{ item.email }}
     </li>
 </ul>
+
+<ChildComp radhe="Krishna krishna" :users="users" :parentFunction="parentFunction" />
+<p>{{ parentFunction() }}</p>
+
+<UsersComp ram="Shree Ram" :users="users" />
+
 </template>
 
 <script>
+import ChildComp from './ChildComp.vue'
+import UsersComp from './UsersComp.vue'
 export default {
     name: 'HomeComp',
+    components: {
+        ChildComp,
+        UsersComp
+    },
     data() {
         return {
             count: 0,
@@ -86,6 +98,10 @@ export default {
                 password: this.password
 
             }
+        },
+        parentFunction() {
+            this.email,
+            console.log("parent function called")
         }
     }
 
